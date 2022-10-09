@@ -1,0 +1,20 @@
+
+<div class="card h-100 border-0 mb-3">
+    <div class="card-body border-bottom rounded-0 border-info">
+            <p class="fw-bold">
+                <a href="{plink Post:show $post->id}" class="nav-link" n:tag-if="$user->isAllowed('post', 'view')">
+                    {$post->title}
+                </a>
+            </p>
+        <p class="mt-3">
+            {$post->content|truncate: 150}
+        </p>
+        <p>
+            <i class="bi bi-person-circle"></i> {$post->ref('author_id')->name} {$post->ref('author_id')->surname}
+        </p>
+        <a n:if="$user->isAllowed('post', 'view')" href="{plink Post:show $post->id}" class="btn btn-outline-primary border-0 btn-sm fw-bold">
+            <i class="bi bi-blockquote-left"></i>
+            zobrazit clanok
+        </a>
+    </div>
+</div>

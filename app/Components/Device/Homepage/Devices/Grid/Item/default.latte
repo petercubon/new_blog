@@ -1,0 +1,31 @@
+
+{snippet flashes}
+
+    <div n:foreach="$flashes as $flash" class="alert alert-danger" role="alert">
+        {$flash->message}
+    </div>
+
+{/snippet}
+
+{*{snippet devices}*}
+
+    <div class="card text-center">
+        <div class="card-header fw-bold">
+            <p class="h5 float-start">{$device->name}</p>
+            <a n:href="deleteDevice!" class="nav-link ajax">
+                <small class="h5 float-end text-danger">
+                    <i class="bi bi-trash"></i>
+                </small>
+            </a>
+        </div>
+        <a href="{plink Device:show $device->id}">
+            <img src="{$baseUrl}/img/{$device->image}.svg" class="img-fluid w-50 mx-auto d-block" alt="...">
+        </a>
+        <div class="card-body">
+            <p class="card-text">
+                Miestnosť: <span class="fw-bolder"> {$device->room} </span>
+            </p>
+            <a href="{plink Device:show $device->id}" class="btn btn-outline-primary w-100">Zobraziť detail</a>
+        </div>
+    </div>
+{*{/snippet}*}

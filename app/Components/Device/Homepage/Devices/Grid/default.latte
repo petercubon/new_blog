@@ -1,0 +1,32 @@
+{*  <div class="col-3 me-3" n:foreach="$devices as $device">*}
+
+{*     {control devicesGridItemMultiple-$device->id}*}
+
+{*  </div>*}
+
+{snippet flashes}
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-success alert-dismissible fade show" n:foreach="$flashes as $flash" role="alert">
+                {$flash->message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+{/snippet}
+
+{snippet devices}
+
+<div class="row d-flex flex-row flex-nowrap overflow-auto my-3 py-3">
+
+    {foreach $devices as $device}
+        <div class="col-3 me-3">
+
+                {control devicesGridItemMultiple-$device->id}
+
+        </div>
+    {/foreach}
+</div>
+
+{/snippet}
+

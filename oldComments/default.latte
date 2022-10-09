@@ -1,0 +1,27 @@
+<form n:name="form">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">
+            Meno (prezyvka)
+        </label>
+        <input n:name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <!-- $postId -->
+        <input n:name="postId" placeholder="29" type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">
+            Emailova adresa (nepovinny udaj)
+        </label>
+        <input n:name="email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="form-floating mb-3">
+        <textarea n:name="content" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <label for="floatingTextarea2">
+            Text komentaru
+        </label>
+    </div>
+    <button n:name="send" type="submit" class="btn btn-success my-3">
+        <i class="bi bi-send"></i> Pridaj komentár
+    </button>
+</form>

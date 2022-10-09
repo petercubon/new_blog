@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/app/migrations/basic-data/2022-05-19-142534-addtestuser.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/app/migrations/dummy-data/2022-05-19-140307-fillpost.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/app/migrations/structures/2022-05-19-125451-addpost.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/app/migrations/structures/2022-05-19-164548-addroles.sql" dialect="GenericSQL" />
+    <file url="PROJECT" dialect="MySQL" />
+  </component>
+</project>

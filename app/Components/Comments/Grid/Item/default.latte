@@ -1,0 +1,61 @@
+
+{snippet flashes}
+
+    <div n:foreach="$flashes as $flash" class="alert alert-danger" role="alert">
+        {$flash->message}
+    </div>
+
+{/snippet}
+
+<div class="row border-start border-secondary border-5 mb-5" n:snippet="comments" style="text-align: justify">
+    <div class="col">
+        <p class="fw-bold">
+            <i class="bi bi-chat-right-text me-2"></i>{$item->name}
+        </p>
+    </div>
+    <div class="col text-end fw-bold text-secondary">
+        <small>
+            <i class="bi bi-envelope-open me-1"></i>{$item->email}
+        </small>
+        <small>
+            <i class="bi bi-clock ms-2 me-1"></i> {$item->created_at|date:'d.m.Y, H:i'}
+        </small>
+        <small>
+
+        <!-- Button trigger modal -->
+        <button class="btn btn-sm btn-outline-danger border-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="bi bi-trash"></i> zmazať komentár
+        </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body text-start">
+                            Natrvalo zmazať komentár?
+                        </div>
+                        <div class="modal-footer">
+                            <a n:if="$user->isAllowed($item, 'delete')" n:href="delete!" class="nav-link text-danger ajax">
+                                <i class="bi bi-trash text-danger"></i> zmazať komentár
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </small>
+    </div>
+    <div class="row">
+        <div class="col">
+            {$item->content}
+        </div>
+    </div>
+    </div>
+
+

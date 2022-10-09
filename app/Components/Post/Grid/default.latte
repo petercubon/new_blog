@@ -1,0 +1,39 @@
+<div n:foreach="$posts as $post">
+
+    {control postGridItemMultiple-$post->id}
+
+</div>
+
+{* PAGINATOR *}
+{* do odkazu na signal pridavat aj nepovinny "!", aby bolo jasne, ze sa odkazuje na signal *}
+<div class="container-fluid pt-3">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination pagination-sm justify-content-center">
+
+            <li class="page-item">
+                <a
+                        class="page-link"
+                        n:href="page! 1"
+                        aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+
+            <li n:for="$i = max(1, $page - 3); $i <= min($numOfPages, $page + 3); $i++"
+    n:class="page-item, $page == $i ? active">
+                <a n:href="page! $i" class="page-link">
+                    {$i}
+                </a>
+            </li>
+
+            {*        <li class="page-item"><a class="page-link" n:href="page! $numOfPages"> {$numOfPages} </a></li>*}
+
+            <li class="page-item">
+                <a class="page-link" n:href="page! $numOfPages" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+</div>

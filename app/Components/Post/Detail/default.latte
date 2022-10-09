@@ -1,0 +1,77 @@
+
+<div class="card-body">
+    <p class="small text-mutted text-end">
+        Photo by
+        <a href="https://unsplash.com/@evgeniasterg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+            Evgenia Stergioula
+        </a>
+        on
+        <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+            Unsplash
+        </a>
+    </p>
+
+    <h1 class="text-uppercase text-center fw-bold mt-5">
+        {$item->title}
+    </h1>
+
+    <div class="row">
+        <div class="col-12 text-end">
+            <p class="small text-end text-success">
+                <a n:if="$user->isAllowed($item, 'edit')" href="{plink Post:edit $item->id}" class="nav-link">
+                    <i class="bi bi-pen"></i> Upravit clanok
+                </a>
+            </p>
+        </div>
+        <div class="col-12" n:if="$user->isAllowed($item, 'delete')">
+            <section id="removePost">
+                <!-- Button modal -->
+                <button type="button" class="btn btn-sm btn-outline-danger border-0" data-bs-toggle="modal" data-bs-target="#exampleModal" style="float: right;">
+                    <i class="bi bi-trash"></i> Odstranit clanok
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"> <i class="bi bi-trash text-danger"></i> Odstranenie clanku</h5>
+                                <button type="button" class="btn btn-outline-danger border-0" data-bs-dismiss="modal" aria-label="Close">
+                                    <i class="bi bi-x-lg"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Chete natrvalo odstranit clanok s nazvom "<strong> {$item->title} </strong>"?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">zavriet</button>
+                                <a n:if="$user->isAllowed($item, 'delete')" n:href="delete!" class="btn btn-danger">
+                                    <i class="bi bi-trash"></i> Odstranit clanok
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+{*    <p class="small text-end text-danger">*}
+{*        <a n:if="$user->isAllowed($item, 'delete')" n:href="delete!" class="nav-link text-danger">*}
+{*            <i class="bi bi-trash"></i> Odstranit clanok*}
+{*        </a>*}
+{*    </p>*}
+
+    {if ($item->status != 2)}
+        <span class="badge rounded-pill text-bg-warning">
+            Článok ešte nie je euverejnený
+        </span>
+    {/if}
+
+    <p class="small text-mutted text-center mb-5 d-inline">
+        <strong> Meno Autora  {$item->id}</strong>, {$item->created_at|date:'d.m.Y, H:i'} | ID clanku: {$item->id}
+    </p>
+    <p class="card-text mt-3" style="text-align: justify;">
+        {$item->content}
+    </p>
+</div>

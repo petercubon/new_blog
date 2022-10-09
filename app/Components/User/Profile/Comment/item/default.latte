@@ -1,0 +1,12 @@
+
+<p>
+    Článok:
+    <span class="fw-bold d-inline">
+        <a href="{plink Post:show $myComment->post_id}" class="nav-link d-inline text-primary">
+            {$myComment->ref('post_id')->title}
+        </a>
+    </span>
+</p>
+<small class="ms-3">
+    <span class="fw-bold">môj komentár:</span> {$myComment->content}
+</small>

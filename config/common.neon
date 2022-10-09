@@ -1,0 +1,79 @@
+parameters:
+    emailTemplatePath: '%appDir%\Presenters\templates\components\emails\'
+    defaultLang: 'sk'
+    lattePath: '%appDir%\Presenters\Templates\Components\Emails\'
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+
+session:
+	expiration: 14 days
+
+
+di:
+	export:
+		parameters: no
+		tags: no
+
+
+services:
+    - App\Model\API\SklonovanieMien(apiKey: %API_KEY_SKLONOVANIE_MIEN%)
+    security.passwords: Nette\Security\Passwords(::PASSWORD_BCRYPT, [cost: 12])
+    - App\Model\MailSenderUserRegister(lattePath: %lattePath%)
+    - App\Model\Authenticator
+    - App\Dashboard\Article\Edit\FormFactory
+    - App\Model\MailSender(lattePath: %emailTemplatePath%)
+    - App\Model\AuthorizatorFactory::create
+    # zoberieme latteFactory a nad nou sa zavola dekoracia (pridanie filtru translate a bude volat callback zo servisu myTranslator a jej metodu translate)
+    # pri kazdom zavolani latte enginu uz mame vzdy zaregistrovany translate
+    # obdnobne sa registuju aj metody
+    myTranslator: App\Model\MyTranslator(defaultLang: %defaultLang%)
+    nette.latteFactory:
+        setup:
+            - addfilter('translate', [@myTranslator, 'translate'])
+
+#    - App\components\User\Sign\In\FormFactory
+#    - App\components\User\Sign\In\ControlFactory
+#    - App\components\User\Sign\In\Control
+#    - App\components\Post\Grid\ControlFactory
+#    - App\components\Post\Grid\Item\ControlFactory
+#    - App\components\Box\BoxControl
+#    - App\components\Comments\FormFactory
+#    - App\Components\Comments\DeleteComment\FormFactory
+#    - App\Components\Clanok\Mriezka\Control
+#    - App\Components\Post\Manipulate\Control
+#    - App\Components\Post\Manipulate\FormFactory
+
+
+#security:
+#	users:
+#		# jméno: heslo
+#		admin: admin
+
+extensions:
+    console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
+    migrations: Nextras\Migrations\Bridges\NetteDI\MigrationsExtension
+
+migrations:
+    dir: %appDir%/migrations    # migrations base directory
+    driver: mysql               # pgsql or mysql
+    dbal: nette                 # nextras, nette, doctrine or dibi
+    withDummyData: %debugMode%  # prida parameter true || false podla nastavenia
+
+search:
+    model:     # názvy sekcí si volíte sami
+        in: %appDir%/Model
+        classes: # filtrovanie na zaklade nazvu triedy (casti nazvu triedy v tvare "cokolvekManager"
+                    - *Manager
+
+    Components:
+        in: %appDir%/Components
+        classes:
+                    - *Factory
+    core:
+        in: %appDir%/Core
+        classes:
+                    - *Factory

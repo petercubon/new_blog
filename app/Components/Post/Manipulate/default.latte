@@ -1,0 +1,36 @@
+{*<span class="fw-bold fs-3">Editacia existujuceho clanku z default.latte</span>*}
+
+{*{snippet form}*}
+{*        {control postForm}*}
+{*{/snippet}*}
+
+<form class="ajax" n:name="postForm">
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Názov článku</label>
+        <input n:name="title" type="text" class="form-control" id="title" aria-describedby="title" required>
+    </div>
+
+    <div class="form-floating mb-3">
+        <textarea n:name="content" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 250px" required></textarea>
+        <label for="floatingTextarea2">Text noveho článku</label>
+    </div>
+
+{*    <div class="mb-3">*}
+{*        <label for="title" class="form-label">post ID:</label>*}
+{*        <input n:name="id" type="number" class="form-control" id="postId" aria-describedby="postId" required>*}
+{*    </div>*}
+
+    <legend class="small"><span class="fw-bold"> stav článku </span> (návrh / rozpracovaný / na uverejnenie)
+
+    </legend>
+    <div class="my-3">
+        <select n:name="status" class="form-select" aria-label="Default select example">
+        </select>
+    </div>
+
+    <button n:name="send" type="submit" class="btn btn-primary my-3"> Uložiť článok </button>
+
+</form>
+
+

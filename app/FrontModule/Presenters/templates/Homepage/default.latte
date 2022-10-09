@@ -1,0 +1,15 @@
+{block content}
+
+<section id="main_content">
+    <div class="container">
+
+        <div class="row my-3 g-3" n:snippet="form">
+
+                {if $user->isAllowed('postGrid', 'view')}
+                    {control postGrid}
+                {/if}
+
+        </div>
+    </div>
+</section>
+

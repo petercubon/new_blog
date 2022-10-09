@@ -1,0 +1,22 @@
+{snippet flashes}
+    <div n:foreach="$flashes as $flash" class="alert alert-warning alert-dismissible fade show m-3" role="alert">
+        <strong> {$flash->message} </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{/snippet}
+
+<div n:snippet="comments" data-ajax-prepend="true" class="col-12 border-bottom border-secondary mb-3 py-3">
+
+    {foreach $comments as $comment}
+        {control postCommentGridItemMultiple-$comment->id}
+    {/foreach}
+
+</div>
+
+<section id="postCommentPaginator">
+    <div class="container ps-0 pt-3">
+        <a n:href="loadMore!" class="nav-link text-primary ajax">
+            <i class="bi bi-chat-right-dots"></i> Nacitat dalsie komentare
+        </a>
+    </div>
+</section>

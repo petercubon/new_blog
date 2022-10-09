@@ -1,0 +1,41 @@
+{block content}
+
+    {snippet flashes}
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-success alert-dismissible fade show" n:foreach="$flashes as $flash" role="alert">
+                    {$flash->message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    {/snippet}
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <a href="{plink Post:show, $post->id}" class="nav-link d-inline">
+                {$post->title}
+            </a>|
+            <span class="fw-bold">
+                ID:
+            </span>
+            {$post->id}
+            <span class="badge text-bg-light border border-success float-center">
+                {match($post->status){
+                0 => 'návrh',
+                1 => 'koncept',
+                2 => 'uverejnený',}}
+            </span>
+            <span class="float-end">
+                <span class="fw-bold">
+                    autor:
+                </span>
+                {$post->ref(author_id)->name} {$post->ref(author_id)->surname}
+                <a n:href="deleteOtherPost!, $post->id" class="nav-link d-inline float-end ajax">
+                    <i class=" ms-3 bi bi-trash text-danger"></i>
+                </a>
+            </span>
+        </li>
+    </ul>
+
+{/block}

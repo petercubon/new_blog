@@ -1,0 +1,30 @@
+
+{*{control form}*}
+
+<p class="text-primary h3 mb-3">
+    <strong> {$deviceName} </strong>
+</p>
+
+<form n:name="form">
+    <label for="startValue" class="form-label"> Počiatočný stav </label>
+    <div class="input-group mb-3">
+        <input n:name="startValue" type="number" step="0.01" class="form-control bg-success bg-opacity-50" id="startValue">
+        <span class="input-group-text" id="startValue"> kWh </span>
+    </div>
+    <div class="mb-3">
+        <label for="startTime" class="form-label"> Dátum a čas počiatočného stavu </label>
+        <input n:name="startTime" type="datetime-local" class="form-control bg-success bg-opacity-50" id="startTime">
+    </div>
+    <label for="endValue" class="form-label"> Koncový stav </label>
+    <div class="input-group mb-3">
+        <input n:name="endValue" type="number" step="0.01" class="form-control bg-warning bg-opacity-50" id="endValue">
+        <span class="input-group-text" id="startValue"> kWh </span>
+    </div>
+    <div class="mb-3">
+        <label for="endTime" class="form-label"> Dátum a čas koncového stavu </label>
+        <input n:name="endTime" type="datetime-local" class="form-control bg-warning bg-opacity-50" id="endTime">
+    </div>
+    <button n:name="send" type="submit" class="btn btn-success">
+        <i class="bi bi-check2-all"></i> Uložiť meranie
+    </button>
+</form>

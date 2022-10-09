@@ -1,0 +1,38 @@
+{block content}
+
+    <h5 n:block="title" class="fw-normal text-primary">
+        Detail prispevku
+    </h5>
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <p>
+                <a n:href="Homepage:default" class="nav-link">
+                    <i class="bi bi-arrow-left"></i> na zoznam clankov
+                </a>
+            </p>
+            <hr class="border border-primary opacity-50">
+                {control postDetailControl}
+            <hr class="border border-primary opacity-50 my-5">
+                {if $user->isAllowed('comment', 'add')}
+                    <p class="text-primary fw-bold">
+                        Pridat novy komentár
+                    </p>
+                    {control addNewCommentForm}
+                {/if}
+            <hr class="border border-primary opacity-50 my-5">
+            <p class="text-primary fw-bold">
+                    Komentáre k článku
+            </p>
+            {if $user->isAllowed('commentGrid', 'view')}
+                {control commentsGrid}
+            {/if}
+        </div>
+        <div class="col-12 col-lg-4">
+            <!-- Other Posts -->
+             {if ($user->isAllowed('otherPosts', 'view'))}
+                {control otherPosts}
+            {/if}
+        </div>
+    </div>
+
+{/block}
