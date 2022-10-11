@@ -1,0 +1,56 @@
+{block content}
+
+<section id="deviceDetail">
+    <div class="container mb-5">
+        <div class="row py-5 align-items-center">
+            <div class="col-2">
+                <img src="{$baseUrl}/img/{$device->image}.svg" class="img-fluid mx-auto d-block">
+            </div>
+            <div class="col-10 h-100">
+                <p class="h3 fw-bold text-primary">
+                    {$device->name}
+                </p>
+                <p>
+                    v miestnosti <span class="fw-bold"> {$device->room} </span>
+                </p>
+
+                <a n:href="Device:addMeasurement $device->id, $device->name" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> Pridaj nové meranie spotreby
+                </a>
+
+                <!-- 1. Modal>
+                <!-- Button trigger modal -->
+{*                <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">*}
+{*                    <i class="bi bi-plus-circle"></i> Pridaj nové meranie spotreby*}
+{*                </a>*}
+
+{*                <!-- Modal -->*}
+{*                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">*}
+{*                    <div class="modal-dialog modal-dialog-centered">*}
+{*                        <div class="modal-content">*}
+{*                            <div class="modal-header">*}
+{*                                <h5 class="modal-title" id="exampleModalLabel">Pridať nové meranie spotreby elektrickej energie</h5>*}
+{*                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>*}
+{*                            </div>*}
+{*                            <div class="modal-body">*}
+{*                                <!-- Form -->*}
+{*                                {control addMeasurementForm}*}
+{*                            </div>*}
+{*                        </div>*}
+{*                    </div>*}
+{*                </div>*}
+
+                <!-- 2. Modal -->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="showConsumption">
+    <div class="container text-center">
+        {control measurementGrid}
+    </div>
+</section>
+
+{/block}

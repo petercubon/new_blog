@@ -1,0 +1,22 @@
+
+{*    <div class="col-12 col-md-5">*}
+        <div n:foreach="$otherPosts as $otherPost" class="card border-0 mb-3 position-relative bg-primary bg-opacity-25 rounded-0">
+            <div class="row">
+                <div class="col-12 py-2">
+                    <div class="card-body">
+                        <p class="fw-bold">
+                            <a href="{plink Post:show $otherPost->id}" class="nav-link">
+                                {$otherPost->title}
+                            </a>
+                        </p>
+                        <p class="small text-secondary">
+                           Autor: {$otherPost->ref(author_id)->name} {$otherPost->ref(author_id)->surname}
+                        </p>
+                        <p class="mt-3 d-inline small text-secondary">
+                            <i class="bi bi-calendar-event"></i> {$otherPost->created_at|date:("d.m.Y, H:i")}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+{*    </div>*}

@@ -1,0 +1,12 @@
+
+    <h5 style="height: 50px;">
+        <a href="{plink Post:show $clanok->id}" class="nav-link">
+            {$clanok->title}
+        </a>
+    </h5>
+    <small>
+        {$clanok->created_at|date:"%d.%m.%y"}
+    </small>
+    <p>
+        {$clanok->content|truncate: 150}
+    </p>

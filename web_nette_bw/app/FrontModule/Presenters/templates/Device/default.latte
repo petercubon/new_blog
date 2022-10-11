@@ -1,0 +1,59 @@
+{block content}
+    <section id="addDevice">
+        <div class="container py-3">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <img src="{$baseUrl}/img/spotrebice.svg" class="img-fluid">
+                </div>
+                <div class="col-6">
+                    <p class="text-primary h5 py-2">
+                        <i class="bi bi-plus-circle"></i> Pridat nove zariadenie
+                    </p>
+                    {if ($user->isAllowed('addNewDevice', 'view'))}
+                        {snippet addDeviceForm}
+                            {control addDevice}
+                        {/snippet}
+                    {else}
+                        <div class="alert alert-primary w-100" role="alert">
+                            Pre pridanie spotrebiča je nutné
+                            <a n:href="Sign:in" class="nav-link d-inline fw-bold"> prihlásenie </a>.
+                        </div>
+                    {/if}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="showDevices">
+        <div class="container py-5 border-top">
+
+            <div class="row">
+                <div class="col-12">
+                    <h3> Prehľad pridaných zariadení </h3>
+                </div>
+            </div>
+
+                    {if ($user->isAllowed('showDevices', 'view'))}
+
+                            {snippet devices}
+
+                                {control devices}
+
+                            {/snippet}
+
+                    {else}
+                        <div class="alert alert-primary w-100" role="alert">
+                            Pridané spotrebiče je možné zobraziť po
+                            <a n:href="Sign:in" class="nav-link d-inline fw-bold">
+                                prihlásení
+                            </a>.
+                        </div>
+                    {/if}
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{/block}

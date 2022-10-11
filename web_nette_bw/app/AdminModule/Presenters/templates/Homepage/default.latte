@@ -1,0 +1,61 @@
+{block content}
+
+    <div class="container-xxl rounded p-1">
+        <div class="row">
+            <div class="col-12 col-md-3">
+                <div class="card text-center">
+                   <div class="text-center pt-3">
+                       <img src="{$baseUrl}/img/avatar.webp" class="w-75" alt="profile image">
+                   </div>
+                    <div class="card-body">
+                        <h4 class="fw-light">
+                            {$user->getIdentity()->name} {$user->getIdentity()->surname}
+                        </h4>
+                        <p>
+                             {$user->getIdentity()->email}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-body text-start">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <a n:href="Post:OtherByStatus, 2" class="nav-link d-inline">
+                                    Uverejnené články
+                                </a>
+                                <span class="badge text-bg-success d-inline  float-end">
+                                    {$numOfPublicPosts}
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <a n:href="Post:OtherByStatus, 1" class="nav-link d-inline">
+                                    Rozpracované články
+                                </a>
+                                <span class="badge text-bg-warning d-inline float-end">
+                                    {$numOfConceptPosts}
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <a n:href="Post:OtherByStatus, 0" class="nav-link d-inline">
+                                    Návrhy na článok
+                                </a>
+                                <span class="badge text-bg-danger d-inline  float-end">
+                                    {$numOfIdeaPosts}
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-12 col-md-9">
+                <p class="fw-bold">
+                    Moje články
+                </p>
+                {control postGrid}
+            </div>
+        </div>
+    </div>
+
+{/block}

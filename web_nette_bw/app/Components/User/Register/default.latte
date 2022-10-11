@@ -1,0 +1,45 @@
+
+{*{control form}*}
+
+<form n:name="form" class="my-3">
+    <label for="firstName" class="form-label">Meno</label>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
+        <input type="text" n:name="name" class="form-control" placeholder="Meno" id="name" aria-describedby="emailHelp" required>
+    </div>
+    <label for="lastName" class="form-label">Priezvisko</label>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
+        <input type="text" n:name="surname" class="form-control" placeholder="Priezvisko" id="lastName" aria-describedby="emailHelp" required>
+    </div>
+    <label for="email" class="form-label">Email</label>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-paper"></i></span>
+        <input type="email" n:name="email" class="form-control" placeholder="@" id="email" aria-describedby="emailHelp" required>
+    </div>
+    <label for="password" class="form-label">Heslo</label>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"><i class="bi bi-shield"></i></span>
+        <input type="password" n:name="password"class="form-control" id="password" placeholder="********" required>
+    </div>
+    <label for="passwordRepeat" class="form-label">Zopakovanie hesla</label>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="repeatPassword"><i class="bi bi-shield"></i></span>
+        <input type="password" n:name="passwordRepeat"class="form-control" id="passwordRepeat" placeholder="********" required>
+    </div>
+
+    <div class="my-4 form-check">
+        <input type="checkbox" n:name="checkbox" class="form-check-input" id="exampleCheck1" required>
+        <label class="form-check-label" for="exampleCheck1">
+            Súhlasím s podmienkami registrácie v súlade s dokumentom
+            <a href="{plink Homepage:gdpr}" class="nav-link d-inline">
+                Podmienky registrácie
+            </a>.
+        </label>
+    </div>
+
+    <button n:name="send" type="submit" class="btn btn-success">
+        <i class="bi bi-check2 me-2"></i> Registruj
+    </button>
+
+</form>

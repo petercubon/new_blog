@@ -1,0 +1,44 @@
+{block dashBoard}
+
+<table class="table table-striped">
+    <thead>
+    <tr class="bg-primary bg-dark text-light">
+        <th scope="col">ID</th>
+        <th scope="col">Nadpis</th>
+        <th scope="col">Status</th>
+        <th scope="col">Datum a cas</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr n:foreach="$concepts as $post">
+        <th scope="row">{$post->id}</th>
+        <td>
+            <a n:href="Post:show $post->id" class="nav-link d-inline">
+                {$post->title|truncate:75}
+            </a>
+        </td>
+        <td>
+            {switch $post->status}
+                {case 0}
+                <span class="badge rounded-pill text-bg-primary ms-auto">navrh clanku</span>
+            {case 1}
+                <span class="badge rounded-pill text-bg-warning ms-auto">koncept clanku</span>
+            {case 2}
+                <span class="badge rounded-pill text-bg-success ms-auto">publikovane</span>
+                {default}
+            {/switch}
+        </td>
+        <td>{$post->created_at|date:'d.m.Y | H:i'}</td>
+        <td class="text-end">
+            <a n:href="Post:show $post->id" class="nav-link d-inline">
+                <span class="text-warning"><i class="bi bi-eye me-2"></i> Zobrazit</span>
+            </a>
+{*            <a n:href="dashboard:editPost $post->id" class="nav-link d-inline">*}
+            <a n:href="dashboard:edit $post->id" class="nav-link d-inline">
+                <span class="text-primary ms-3 me-3"><i class="bi bi-pen me-2"></i> Editovat</span>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>

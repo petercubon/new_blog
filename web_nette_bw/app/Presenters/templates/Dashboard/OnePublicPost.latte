@@ -1,0 +1,73 @@
+{block dashBoard}
+
+<div class="row py-4 my-4 bg-secondary bg-opacity-25">
+    <div class="col-12">
+        <h3>
+            {$post->title}
+        </h3>
+        <small>
+            {$post->created_at|date:'d.m.Y, H:i'} <br>
+            ID: {$post->id}
+        </small>
+        <p class="my-3">
+            {$post->content}
+        </p>
+    </div>
+</div>
+
+<div class="h4 pb-2 my-4 text-success border-bottom border-success">
+    Komentare k clanku
+</div>
+
+<div class="row">
+    <div class="col">
+
+        <div class="list-group my-1" n:foreach="$comments as $comment">
+            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"> {$comment->content|substr: 0, 50}... </h5>
+                    <p>
+                        {$comment->created_at|date:'d.m.Y, H:i'}
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{$comment->id}">
+                            <i class="bi bi-trash"></i>
+                        </button>
+
+                    </p>
+                </div>
+                <p class="mb-1">
+                    autor: {$comment->name} |
+                    ID: <strong>{$comment->id}</strong>
+                </p>
+                <small>
+                    <p>text komentaru: {$comment->content}</p>
+                </small>
+            </a>
+
+            <!-- Modal window for delete comment -->
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal{$comment->id}" tabindex="-1" aria-labelledby="exampleModalLabel{$comment->id}" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            Odstrániť komentár používateľa <strong> {$comment->name} </strong>?
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="fw-light">
+                                Kliknutím na tlačidlo "<span class="fw-bold text-danger">Odstrániť komentár</span> " dôjde k trvalému zmazaniu komentáru bez možnosti jeho obnovenia.
+                            </p>
+                            <small>
+                                <span class="fw-bold">Text komentáru:</span> {$comment->content|substr: 0, 50}
+                            </small>
+
+                            <!-- Delete Comment Form -->
+                            {control "deleteForm-$comment->id"}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

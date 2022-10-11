@@ -1,0 +1,27 @@
+
+.post-container {
+    padding: 10px;
+}
+
+.bg-card-01{
+    color: black;
+}
+
+.bg-card-01 h5{
+    min-height: 65px;
+    color: darkgreen;
+}
+
+.bg-card-01 p .small{
+    font-size: 0.25em;
+}
+
+.bg-card-01 .card-content{
+    min-height: 65px;
+}
+
+.card-img{
+    min-height: 250px;
+    background-size: cover;
+    border-radius: 0px;
+}

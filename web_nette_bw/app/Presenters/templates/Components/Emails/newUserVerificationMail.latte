@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Potvrdenie e-mailovej adresy zadanej pri registrácií.
+    </title>
+</head>
+<body>
+
+    <h3>Dobrý deň {$firstName},</h3>
+    <p>
+        táto správa je  zaslaná na základe registrácie na stránke Blog za účelom overenia mailovej adresy {$email}
+    </p>
+    <p>
+        Pre overenie zadanej e-mailovej adresy klikni na nasladujúci odkaz:
+        <a href="{$baseUrl}/register/verification-email/verificationToken={$verificationCode}&userId={$id}">
+            <strong>Overiť email</strong>
+        </a>.
+    </p>
+
+    <p>
+        S pozdravom Blog
+    </p>
+
+</body>
+</html>

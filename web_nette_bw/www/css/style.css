@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+body {
+    background-color: red;
+}
+
+.logo-title {
+    font-size: 3em;
+    font-family: 'Playfair Display', serif;
+}
+
+.justify {
+    text-align: justify;
+}
+
+ul a {
+    color: black;
+}
+
+ul li {
+    padding-left: 0.25em;
+}
+
+ul li i {
+    font-size: 1.25em;
+
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-link .right-icon {
+    display: inline-flex;
+    transition: 500ms;
+}
+
+.right-icon:hover {
+    color: blue;
+    /*transform: rotate(180deg);*/
+}
+
+.sidebar-link[aria-expanded="false"] .right-icon {
+    transform: rotate(180deg);
+    transition: 500ms;
+}
+
+@media (min-width: 992px) {
+    .sidebar-nav {
+        transform: none;
+        visibility:  visible !important;
+        top: var(--topNavbarHeight);
+        height: calc(100% - var(--topNavbarHeight));
+    }
+}
+
+.postsList:nth-child(row) {
+    background-color: red;
+}

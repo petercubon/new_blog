@@ -1,0 +1,61 @@
+{block dashBoard}
+
+<section id="contentOfDasboard">
+    <div class="row pt-3">
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 text-bg-success bg-gradient bg-opacity-75 mb-3">
+                <div class="card-header">Publikovane clanky</div>
+                <div class="card-body">
+                    <p class="card-text">pocet publikovanych clankov: {$publicPostsCount}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 text-bg-warning bg-gradient bg-opacity-50 mb-3">
+                <div class="card-header">Rozpracovane clanky</div>
+                <div class="card-body">
+                    <p class="card-text">pocet rozpracovanych clankov: {$conceptPostCount}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 text-bg-primary bg-gradient bg-opacity-75 mb-3">
+                <div class="card-header">Navrhy clankov</div>
+                <div class="card-body">
+                    <p class="card-text">pocet navrhov na clanok: {$ideaPostCount}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card h-100 text-bg-danger bg-gradient bg-opacity-75 mb-3">
+                <div class="card-header">Clanky na spracovanie</div>
+                <div class="card-body">
+                    <p class="card-text">pocet vsetkych clankov: {$allPostCount}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row py-3">
+        <span class="fw-bold fs-3">Section of Dashboard</span>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header">
+                    Nadpis 1 .sekcie
+                </div>
+                <div class="card-body p-0">
+                    <img src="http://localhost/nette/nette-bw/www/img/02.jpg" class="img-fluid">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header">
+                    Nadpis 2 .sekcie
+                </div>
+                <div class="card-body p-0">
+                    <img src="http://localhost/nette/nette-bw/www/img/02.jpg" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
