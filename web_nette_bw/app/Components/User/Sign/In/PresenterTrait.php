@@ -24,10 +24,6 @@ trait PresenterTrait
     public function onSignInFormSuccess(): void
     {
         $this->flashMessage('Prihlasenie bolo uspesne.');
-//        $this->restoreRequest($this->storeRequest);
-//        $this->redirect('Dashboard:default');
         $this->redirect('Homepage:');
-    } // tato metoda sa vykona za predpokladu, ze nenastala chyba vo FormFactory a jej metode onSuccess
-
-
+    }
 }

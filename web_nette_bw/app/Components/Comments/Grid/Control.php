@@ -31,8 +31,7 @@ class Control extends uiControl
     {
         $this->template->numOfPages = 0;
         $this->template->page = $this->page;
-        //page (cislo stranky, pocet prvkov na stranke)
-//        $this->template->comments = $this->manager->getCommentByPostId($this->postId)->page($this->page, $this->itemsPerPage);
+        // $this->template->comments = $this->manager->getCommentByPostId($this->postId)->page($this->page, $this->itemsPerPage);
         $this->template->comments = $this->manager->getCommentByPostId($this->postId);
 
         $this->template->render(__DIR__ . '/default.latte');
@@ -47,7 +46,7 @@ class Control extends uiControl
         return new Multiplier(function (string $id) use ($manager, $factory, $onDeleteCallback) {
 
             return $factory->create(
-                $manager->wrapToEntity($manager->getById((int) $id)), // getById vrati ActiveRow a ten je zabaleny do entity
+                $manager->wrapToEntity($manager->getById((int) $id)), // getById returns an ActiveRow and it is wrapped in an entity
                 $onDeleteCallback,
             );
         });
@@ -69,8 +68,6 @@ class Control extends uiControl
     public function handleLoadMore(): void
     {
         $this->page += 1;
-        // ak sa redrawControl vola bez ajaxu, tak sa ignoruje
-        // ak sa vola prostrednictvom ajaxu, tak sa vykona a dojde k prekresleniu
         $this->redrawControl('comments');
     }
 

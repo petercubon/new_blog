@@ -26,21 +26,15 @@
 
     <section id="showDevices">
         <div class="container py-5 border-top">
-
             <div class="row">
                 <div class="col-12">
                     <h3> Prehľad pridaných zariadení </h3>
                 </div>
             </div>
-
                     {if ($user->isAllowed('showDevices', 'view'))}
-
                             {snippet devices}
-
                                 {control devices}
-
                             {/snippet}
-
                     {else}
                         <div class="alert alert-primary w-100" role="alert">
                             Pridané spotrebiče je možné zobraziť po
@@ -49,10 +43,8 @@
                             </a>.
                         </div>
                     {/if}
-
                 </div>
             </div>
-
         </div>
     </section>
 

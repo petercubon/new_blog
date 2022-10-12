@@ -42,7 +42,5 @@ trait PresenterTrait
         bdump($array);
 
         $this->mailSenderUserRegister->sendNewUserEmailVerification($array);
-
     }
-
 }

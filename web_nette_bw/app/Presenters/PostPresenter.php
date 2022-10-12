@@ -19,8 +19,6 @@ abstract class PostPresenter extends Presenter
 
     use Components\Comments\Grid\ControlTrait;
 
-//    use Components\Comments\Grid\Item\ControlMultipleTrait;
-
     // MANIPULACIA S PRISPEVKAMI
     use Components\Post\Manipulate\PresenterTrait;
 
@@ -30,10 +28,8 @@ abstract class PostPresenter extends Presenter
     // otherPost
     use Components\Post\Detail\OtherPosts\PresenterTrait;
 
-//    private $post;
     private $canCreateCommentGrid;
     private $canCreateCommentForm;
-//    private $canCreatePostDetailControl = null;
     private $canCreatePostForm;
 
     public function __construct(
@@ -44,17 +40,8 @@ abstract class PostPresenter extends Presenter
         private Components\Post\Detail\ControlFactory $controlDetailFactory,
         private Explorer $db,
     ){
-        parent::__construct(); // volanie rodicovskeho constructoru
+        parent::__construct();
     }
-
-    // POSTPRESENTER
-    // MANIPULACIA S PRISPEVKAMI
-
-    // ACTION ADD POST
-//    public function actionAdd()
-//    {
-//        $this->checkPrivilege();
-//    }
 
     public function actionAdd(): void
     {
@@ -62,20 +49,6 @@ abstract class PostPresenter extends Presenter
 
         $this->canCreatePostForm = true;
     }
-
-    // ACTION EDIT POST
-//    public function actionEdit(int $postId): void
-//    {
-//        $this->checkPrivilege();
-//
-//        $post = $this->dashboardManager->getById($postId);
-//
-//        if (!$post){
-//            $this->error('Zadany clanok nebol najdeny.', 404);
-//        }
-//
-//        $this->entity = $post->toArray();
-//    }
 
     public function actionEdit(int $postId): void
     {
@@ -107,7 +80,7 @@ abstract class PostPresenter extends Presenter
 
         $this->post = $this->postManager->wrapToEntity($this->checkPostExistence($postId));
 
-        // obmedzenie zobrazenia casti, ktore nemusia byt pristupne pre uzivatela pridacajuceho novy Post
+        // limiting the display of parts that may not be accessible to the user adding a new Post
         $this->canCreateCommentGrid         = $this->getUser()->isAllowed('commentGrid', 'view');
         $this->canCreateCommentForm         = $this->getUser()->isAllowed('comment', 'add');
         $this->canCreatePostDetailControl   = true; // uz je overene vyssie pomocou checkPrivilege metody

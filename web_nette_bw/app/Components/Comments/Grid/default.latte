@@ -6,11 +6,9 @@
 {/snippet}
 
 <div n:snippet="comments" data-ajax-prepend="true" class="col-12 border-bottom border-secondary mb-3 py-3">
-
     {foreach $comments as $comment}
         {control postCommentGridItemMultiple-$comment->id}
     {/foreach}
-
 </div>
 
 <section id="postCommentPaginator">

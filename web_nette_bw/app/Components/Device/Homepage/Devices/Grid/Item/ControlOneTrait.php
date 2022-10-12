@@ -14,6 +14,4 @@ trait ControlOneTrait
     {
         $this->deviceHomepageDevicesControlFactory = $controlFactory;
     }
-
-
 }

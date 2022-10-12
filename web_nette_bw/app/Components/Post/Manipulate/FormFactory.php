@@ -14,7 +14,7 @@ class FormFactory
 {
     use SmartObject; // vsade kde nie je extend, je potrebne pouzit trait SmartObject
 
-    private array $entity; // otaznik znamena, ze premenna moze byt null
+    private array $entity;
 
     public function __construct(
         private DashboardManager $manager,
@@ -56,11 +56,6 @@ class FormFactory
     public function onSuccess(Form $form, array $data): void
     {
         $entityId = $this->entity['id'];
-
-//        $form['id']->setValue($this->id);
-
-        // !!! Skryta zavislost je zlo !!!
-        // $postId = $this->getParameter('postId');
 
         if ($entityId){
             // ak exituje tak update

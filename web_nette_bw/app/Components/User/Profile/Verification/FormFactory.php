@@ -37,5 +37,4 @@ class FormFactory
 
         return $this->authenticator->updateTokenInUserTable($data);
     }
-
 }

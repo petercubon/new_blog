@@ -49,41 +49,29 @@ class Authenticator implements NetteAuthenticator, IdentityHandler
             throw new Exception('Nespravne heslo.');
         }
 
-//        if($password !== $row->password){ // overenie pre heslo bez hashovania
-//            throw new Exception('Nespravne heslo.');
-//        }
-
-        $user = $row->toArray();    // premenna pre data o pouzivatelovi
-        unset($user[$password]);    // odstrani heslo z dat o pouzivatelovi
-
-
+        $user = $row->toArray();    // variable with user data
+        unset($user[$password]);    // remove password from user data
 
         return new SimpleIdentity(
             $row->id,
-            // $this->roleManager->findByUserIdToSelect($row->id), // nacitanie role usera pomocou "roleManager"
-            // $this->roleManager->findAllByUserIdAsEntity($row->id), // nacitanie role usera pomocou "roleManager"
-
-            // nacitanie role usera pomocou "roleManager"
-//            $this->roleManager->findAllByUserIdToSelectReturnedAsEntity($row->id),
             $this->roleManager->findAllByUserIdAsEntity($row->id),
-            $user,               // data o pouzivatelovi
+            $user,               // user data
         );
     }
 
     public function register(array $data): ActiveRow
     {
         $newUser = $this->userManager->register($data);
-
         return $newUser;
     }
 
-    // aktualna identita pri kazdom refreshi podla databazy
+    // current user identity each time the web browser is refreshed
     function sleepIdentity(IIdentity $identity): IIdentity
     {
         return $identity;
     }
 
-    // aktualna identita pri kazdom refreshi podla databazy
+    // the current user identity each time the web browser is refreshed according to the database
     function wakeupIdentity(IIdentity $identity): ?IIdentity
     {
         $userId = $identity->getId();

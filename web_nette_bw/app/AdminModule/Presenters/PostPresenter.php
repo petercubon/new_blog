@@ -23,18 +23,6 @@ class PostPresenter extends APPostPresenter
 
     use Components\Post\Other\Filter\PresenterTrait;
 
-//    private OtherPostResource $otherPostResource;
-
-//    public function actionShow(int $postId): void
-//    {
-//        parent::actionShow($postId);
-//
-//        if($this->post->getResourceContent()->author_id !== $this->user->id){
-//            $this->flashMessage('Nie si autorom tohoto clanku a nie je mozne ho zobrazit.');
-//            $this->redirect('Sign:in');
-//        }
-//    }
-
     public function renderOtherByStatus(int $status): void
     {
         $this->template->posts = $this->postManager->getPostByStatus($status);

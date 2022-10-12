@@ -44,7 +44,7 @@ class Control extends ControlAlias
         $this->template->render(__DIR__ . '/default.latte');
     }
 
-    // vytvorenie Signalu pre strankovanie (ma klucove slovo handle)
+    // vytvorenie Signalu pre strankovanie
     // Signal funguje len v komponente, alebo v Presenteri
     public function handlePage(int $page): void
     {

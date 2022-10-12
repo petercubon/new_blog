@@ -28,12 +28,6 @@ class PostManager extends BaseManager
                             ->where('status', 2)
                             ->order('id DESC');
 
-//            if ($authorId){
-//                $retVal = $this->getAll()
-//                    ->where('author_id', $authorId)
-//                    ->order('id DESC');
-//            }
-
             return $retVal;
         }
 
@@ -129,11 +123,4 @@ class PostManager extends BaseManager
 
         return $retVal;
     }
-
-//    public function getPostByCommnet(int $postId)
-//    {
-//        $retVal = $this->getAll()
-//            ->where('')
-//    }
-
 }

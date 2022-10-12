@@ -21,7 +21,6 @@ trait PresenterTrait
     {
         return $this->postOtherGridItemControlFactory->create(
             $this->postGridItem,
-            $this->o
         );
     }
 

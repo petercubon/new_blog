@@ -13,12 +13,10 @@ use Nette\Application\UI\Multiplier;
 
 class FormFactory
 {
-
     public function __construct(
         private CommentManager  $commentManager,
         private CoreFormFactory $coreFormFactory,
-    ) {
-    }
+    ) { }
 
     public function create($commentId): Form
     {
@@ -32,7 +30,6 @@ class FormFactory
 
         return $form;
     }
-
 
     public function onSuccess(Form $form, $data)
     {

@@ -7,10 +7,6 @@ namespace App\Components\Comments\DeleteComment;
 use Nette\Application\UI\Form;
 use Nette\Application\UI\Multiplier;
 
-//use App\Model\CommentManager;
-//use App\Components\Comments\DeleteComment\FormFactory;
-//use Nette\Application\UI\Multiplier;
-
 class Control extends \Nette\Application\UI\Control
 {
     /**

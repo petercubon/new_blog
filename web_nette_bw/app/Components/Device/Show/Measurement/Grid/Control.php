@@ -15,7 +15,6 @@ class Control extends NetteControl
     public function __construct(
         private ConsumptionManager $consumptionManager,
         private int $deviceId,
-        // ControlFactory z adresara Item, ktora vytvara subComponent
         Components\Device\Show\Measurement\Grid\Item\ControlFactory $controlFactory,
     ) {
         $this->consumptions = $this->consumptionManager->getConsumtionById($this->deviceId);
@@ -27,5 +26,4 @@ class Control extends NetteControl
         $this->template->consumptions = $this->consumptions;
         $this->template->render(__DIR__.'/default.latte');
     }
-
 }

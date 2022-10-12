@@ -25,5 +25,4 @@ trait PresenterTrait
         $this->flashMessage('Prihlasenie bolo uspesne.');
         $this->redirect('Homepage:');
     }
-
 }

@@ -29,15 +29,11 @@ class Control extends NetteControl
 
     public function handleDeleteMeasurement(): void
     {
-
 //        $isAllowedToDeleteThis = $this->user->isAllowed($this->item, 'delete');
 
 //        if($isAllowedToDeleteThis){
             $this->consumptionManager->deleteConsumtion($this->item->id);
 //        }
-
         ($this->onDelete)();
-
     }
-
 }

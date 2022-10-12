@@ -31,12 +31,9 @@ class FormFactory
         $form->addText('name', 'meno')
         ->setRequired('Pre pridanie komentaru zadaj meno.');
         $form->addText('email', 'email');
-//        $form->addHidden('postId', 'postId')
-//            ->setDefaultValue($this->postId);
         $form->addText('content', 'content')
         ->setRequired('Text komentaru je povinne pole.');
         $form->addSubmit('send', 'send');
-
         $form->onSuccess[] = [$this, 'onSuccessAddComment'];
 
         return $form;

@@ -10,9 +10,7 @@ class MyTranslator implements Translator
 {
     public function __construct(
         private string $defaultLang,
-    )
-    {
-    }
+    ) { }
 
     public function setLang(string $lang): void
     {
@@ -31,7 +29,7 @@ class MyTranslator implements Translator
      */
     function translate($message, ...$parameters): string
     {
-        // ak exituje message, tak ziskam POLE z $translationMapper, ak neexistuje , tak vrati RETAZEC
+        // if there is a message, then I get a FIELD from the $translation Mapper, if there is no message, then return a STRING
         $mess = $this->translationMapper[$message] ?? $message;
 
         if (is_string($mess)){
@@ -39,6 +37,5 @@ class MyTranslator implements Translator
         }
 
         return $mess[$parameters['lang'] ?? $this->defaultLang];
-
     }
 }

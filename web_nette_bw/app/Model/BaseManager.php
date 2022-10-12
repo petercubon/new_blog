@@ -29,9 +29,9 @@ abstract class BaseManager
         return $this->db->table($this->getTableName());
     }
 
-    public function getById(int $id): ?ActiveRow // ": ?ActiveRow" metoda vracia bud null, alebo ActiveRow, pri jej pouziti error
+    public function getById(int $id): ?ActiveRow
     {
         return $this->getAll()
-            ->get($id); // argument "get()" je datovy typ primarneho kluca, nikdy nie NULL
+            ->get($id);
     }
 }

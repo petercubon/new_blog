@@ -8,7 +8,6 @@ use Nette\Application\UI\Multiplier;
 
 trait PresenterTrait
 {
-
     private FormFactory $formFactory;
     
 // INJECT 

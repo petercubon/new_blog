@@ -32,7 +32,7 @@ class Control extends \Nette\Application\UI\Control
         $form = $this->formFactory->create($this->entity);
 
         $form->onSubmit[] = [$this, 'onSubmit'];
-        $form->onSuccess[] = $this->onSuccess; // registracia 2. callbacku do onSuccess
+        $form->onSuccess[] = $this->onSuccess; // registracia 2. callbacku
 
         return $form;
     }

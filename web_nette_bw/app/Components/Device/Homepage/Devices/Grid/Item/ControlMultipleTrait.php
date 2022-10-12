@@ -26,11 +26,6 @@ trait ControlMultipleTrait
 
         return new Multiplier(function (string $id) use ($manager, $factory, $onDeleteCallback){
 
-//            return $factory->create(
-//                $this->deviceManager->getById((int) $id), // getById vrati ActiveRow a ten je zabaleny do entity
-//
-//            );
-
             return $factory->create(
                 $manager->wrapToEntity($manager->getDeviceById((int) $id)),
                 $onDeleteCallback,

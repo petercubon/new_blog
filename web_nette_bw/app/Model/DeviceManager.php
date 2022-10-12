@@ -52,9 +52,6 @@ class DeviceManager extends BaseManager
 
     public function delete(int $deviceId)
     {
-//        $retVal = $this->getAll()
-//            ->delete($deviceId);
-
         $retVal = $this->getAll()
             ->where('id', $deviceId)
             ->delete();

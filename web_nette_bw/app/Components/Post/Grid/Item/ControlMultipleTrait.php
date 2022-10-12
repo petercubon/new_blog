@@ -11,7 +11,6 @@ trait ControlMultipleTrait
 {
 
     private ControlFactory $postGridItemControlFactory;
-    // private Selection $posts; // Selection je pristupovatelna cez array access
 
     public function inject(ControlFactory $controlFactory)
     {

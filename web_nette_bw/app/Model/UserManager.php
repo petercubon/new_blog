@@ -28,7 +28,7 @@ class UserManager extends BaseManager
     {
         return $this->getAll()
             ->where('email', $email)
-            ->fetch(); // "fetch()" nakolko chceme iba jeden
+            ->fetch();
     }
 
     public function register(array $data): ActiveRow

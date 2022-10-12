@@ -11,11 +11,6 @@ abstract class SignPresenter extends Presenter
 {
     use components\User\Sign\In\PresenterTrait;
 
-//    public function actionIn(string $storeRequestId = '')
-//    {
-//        $this->storeRequestId = $storeRequestId;
-//    }
-
     public function actionOut()
     {
         $this->user->logout(true);

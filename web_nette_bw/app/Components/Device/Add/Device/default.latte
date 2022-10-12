@@ -11,24 +11,19 @@
 
 {snippet addDeviceForm}
     <form n:name="form">
-
         <div class="mb-3">
             <label for="name" class="form-label">Názov zariadenia</label>
             <input n:name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp" required>
         </div>
-
         <div class="mb-3">
             <label for="room" class="form-label">Miestnosť</label>
             <input n:name="room" type="text" class="form-control" id="room" required>
         </div>
-
         <labe class="form-label">Vyberte ikonu zariadenia</labe>
         <select n:name="select_devices_image" class="form-select" aria-label="Default select example">
         </select>
-
         <button n:name="send" type="submit" class="btn btn-sm btn-primary mt-3">
             <i class="bi bi-check2"></i> Pridať  zariadenie
         </button>
-
     </form>
 {/snippet}

@@ -12,8 +12,6 @@ use Nette\Caching\Cache;
 
 class SettingManager extends BaseManager
 {
-
-    // zoznam Properties
     /**
      * Class SettingManager
      * @package App\Model
@@ -39,8 +37,6 @@ class SettingManager extends BaseManager
         return 'setting';
     }
 
-    // na ziskanie hodnot EmailSender a EmailReceiver len jedna metoda
-    // vysledky tejto metody ukladat do cache
     public function getEmailSender(): string
     {
         return $this->getAll()
@@ -54,18 +50,4 @@ class SettingManager extends BaseManager
             ->get('EMAIL_RECEIVER')
             ->value;
     }
-
-//    public function getEmailSenderOrReceiver(string $setting): string
-//    {
-//        $value = $this->getAll()
-//            ->get($setting)
-//            ->value;
-//
-//        $retVal = $this->cache->load('EMAIL_SENDER', function ($value = null){
-//            return $value;
-//        });
-//
-//        return $value;
-//    }
-
 }

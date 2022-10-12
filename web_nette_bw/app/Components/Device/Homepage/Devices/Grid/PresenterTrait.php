@@ -25,5 +25,4 @@ trait PresenterTrait
             $this->authorId,
         );
     }
-
 }

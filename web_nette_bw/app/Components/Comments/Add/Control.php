@@ -31,8 +31,8 @@ class Control extends \Nette\Application\UI\Control
     {
         $form = $this->formFactory->create($this->postId);
 
-        $form->onSubmit[] = [$this, 'onSubmit']; // zavola prekreslenie formularu po AJAX requeste
-        $form->onSuccess[] = $this->onSuccess; // registracia 2. callbacku
+        $form->onSubmit[] = [$this, 'onSubmit']; // called redraw of the form after an AJAX request
+        $form->onSuccess[] = $this->onSuccess; // registration of the 2nd callback
 
         return $form;
     }

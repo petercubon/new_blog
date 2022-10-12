@@ -16,13 +16,6 @@ class HomepagePresenter extends BasePresenter
 {
     use ComponentsPostGridControlTrait;
 
-    //    private ?int $authorId = null;
-//
-//    public function actionDefault(): void
-//    {
-//        $this->authorId = $this->user->id;
-//    }
-
     public function __construct(
         private PostManager $postManager,
         private User $user,

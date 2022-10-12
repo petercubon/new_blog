@@ -13,8 +13,6 @@ use stdClass;
 
 class FormFactory
 {
-//    private User $user;
-
     public function __construct(
         private User $user,
         private CoreFormFactory $coreFormFactory,
@@ -44,5 +42,4 @@ class FormFactory
             $form->addError('Nespravne zadane prihlasovacie udaje.');
         }
     }
-
 }

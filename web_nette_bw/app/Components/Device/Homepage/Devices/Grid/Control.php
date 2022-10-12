@@ -25,5 +25,4 @@ class Control extends \Nette\Application\UI\Control
         $this->template->devices = $this->deviceManager->showDevices($this->authorId);
         $this->template->render(__DIR__ . '/default.latte');
     }
-
 }

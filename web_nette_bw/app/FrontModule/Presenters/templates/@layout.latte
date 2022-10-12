@@ -34,26 +34,20 @@
 						Blog
 					</a>
 				</p>
-
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-
 				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 					<div class="navbar-nav ms-auto">
-
 						<a n:href="Device:default" class="nav-link">
 							<i class="bi bi-app text-primary"></i> Spotreniče
 						</a>
-
 						<a n:href="Homepage:default" class="nav-link">
 							<i class="bi bi-journal-text text-warning"></i> Blog
 						</a>
-
 						<a n:href="Post:add" n:if="$user->isAllowed('post', 'add')" class="nav-link">
 							<i class="bi bi-plus-circle me-1 text-success"></i> Pridať nový článok
 						</a>
-
 						{if $user->isAllowed('front', 'logout')}
 							<a n:href="Sign:out" class="nav-link">
 								<i class="bi bi-box-arrow-right me-1 text-danger"></i> Odhlasit
@@ -64,8 +58,6 @@
 								</a>
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" n:href="User:default">Môj profil</a></li>
-									<li><hr class="dropdown-divider"></li>
-									<li><a class="dropdown-item" href="#">Something else here</a></li>
 								</ul>
 							</li>
 						{else}
@@ -76,31 +68,15 @@
 								<i class="bi bi-box-arrow-in-right text-success"></i> Prihlasit
 							</a>
 						{/if}
-
-
-
-
-
-
-
 						<a href="{$baseUrl}/admin/" n:if="$user->isAllowed('admin', 'view')" class="nav-link">
 							Admin panel
 						</a>
-
-{*						<a n:href="this, lang => 'sk'" class="nav-link text-primary"> Slovensky </a>*}
-{*						<a n:href="this, lang => 'en'" class="nav-link text-primary"> Anglicky </a>*}
-
-{*						{='abc'|translate}*}
-{*						{='hello_world'|translate}*}
-
-{*						{_'abc'|translate}*}
-{*						{_'hello_world'|translate}*}
-
 					</div>
 				</div>
 			</div>
 		</nav>
 	</section>
+
 	{include content}
 
 	<section id="footer">

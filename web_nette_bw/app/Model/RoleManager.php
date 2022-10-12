@@ -47,5 +47,4 @@ class RoleManager extends BaseManager
             $this->findByUserIdToSelect($id),
         );
     }
-
 }

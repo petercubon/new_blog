@@ -25,14 +25,12 @@ class MailSender
 
     private function createMessage(): Message
     {
-        // nie je potreba new Message() extrahovat do tovarnicky, pouziva sa iba v tejto funkcii
         $message = new Message();
 
         $message->setFrom($this->settingManager->emailSender);
         $message->addTo($this->settingManager->emailReceiver);
 
         return $message;
-
     }
 
     private function send(Message $message): void
@@ -43,7 +41,6 @@ class MailSender
 
     private function createLatteTemplate(): Template
     {
-        // aby bolo mozne nacitat latte a pouzivat linky <a n:href="..."> ... </a>
         $latte = $this->templateFactory->createTemplate();
         $latte->getLatte()->addProvider('uiControl', $this->linkGenerator);
 
@@ -60,7 +57,6 @@ class MailSender
             // alebo len pridat $data za late addPostMail.latte,
             // ak chceme id, tak pouzijeme $retVal->toArray()
             ));
-            // aby bolo mozne testovat celu funkciu, Debuger::productionMode mode sa kontroluje az na konci
             $this->send($message);
     }
 }

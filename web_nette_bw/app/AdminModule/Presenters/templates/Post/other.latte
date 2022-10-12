@@ -1,24 +1,17 @@
 {block content}
-
     <div class="row">
         <div class="col">
             <p class="fw-bold">
                 Články od ostatných používateľov
             </p>
             {control filterPostForm}
-
             <div>
-
                 {snippet OtherPost}
-
                     {if ($user->isAllowed('otherPosts', 'view'))}
                         {control otherPostGrid}
                     {/if}
-
                 {/snippet}
-
             </div>
         </div>
     </div>
-
 {/block}

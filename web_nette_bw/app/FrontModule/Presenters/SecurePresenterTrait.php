@@ -16,10 +16,4 @@ trait SecurePresenterTrait
 
         parent::startup();
     }
-
-    protected function beforeRender(): void
-    {
-//        $this->template->name = file_get_contents('');
-
-    }
 }

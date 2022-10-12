@@ -1,12 +1,11 @@
 {block content}
-
     <div class="container-xxl post-container my-4 py-4">
         <div class="row">
             <div class="col-12 col-md-7">
                 <div class="card border border-secondary border-0 rounded-0">
                     <img src="http://localhost/nette/nette-bw/www/img/02.jpg" class="card-img-top rounded-0" alt="image with a caravan">
                         {control postDetailControl}
-                    <!-- Pridanie noveho komentaru -->
+                    <!-- Add new Comment -->
                     <div class="row p-3">
                         <div class="col-12 mb-3 py-3 border-bottom border-secondary">
                             {if $user->isAllowed('comment', 'add')}
@@ -24,7 +23,7 @@
                             {/if}
                         </div>
                     </div>
-                    {* Vypisanie existujucich komentarov *}
+                    {* Show exist comment *}
                     <div class="row p-3">
                         <div class="h4 pb-2 border-bottom border-secondary">
                             Komentáre k článku
@@ -35,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Dalsie clanky -->
+            <!-- Other Posts -->
              <div class="col-12 col-md-5">
                  {if ($user->isAllowed('otherPosts', 'view'))}
                      {control otherPosts}
@@ -43,5 +42,4 @@
              </div>
         </div>
     </div>
-
 {/block}

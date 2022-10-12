@@ -10,8 +10,6 @@ use Nette\Database\Table\Selection;
 trait ControlMultipleTrait
 {
     private ControlFactory $commentsGridItemControlFactory;
-//    private ActiveRow $commentGridItem;
-//    private ?int $postId = null;
     private Selection $comments;
 
 
